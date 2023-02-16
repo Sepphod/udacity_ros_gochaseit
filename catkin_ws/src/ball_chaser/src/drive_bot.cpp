@@ -12,7 +12,9 @@ bool handle_drive_request(ball_chaser::DriveToTarget::Request & req, ball_chaser
 
     ROS_INFO("DriveToTarget received - linear_x:%1.2f, angular_z:%1.2f", static_cast<float>(req.linear_x), static_cast<float>(req.angular_z));
 
-    geometry_msgs::Twist motor_command{req.linear_x,req.angular_z};
+    geometry_msgs::Twist motor_command{};
+    motor_command.linear.x = req.linear_x;
+    motor_command.angular.z = req.angular_z;
     // Publish angles to drive the robot
     motor_command_publisher.publish(motor_command);
 
