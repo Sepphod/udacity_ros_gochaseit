@@ -36,7 +36,6 @@ int main(int argc, char** argv)
 
     ros::ServiceServer service = n.advertiseService("/ball_chaser/command_robot", handle_drive_request);
 
-    // TODO: Handle ROS communication events
     ros::spin();
 
     return 0;
