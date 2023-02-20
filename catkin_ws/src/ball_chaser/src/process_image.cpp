@@ -37,7 +37,7 @@ void process_image_callback(const sensor_msgs::Image img)
 
     auto result = std::find_if(std::begin(img.data),std::end(img.data),is_white);
 
-    if (std::end(msg.data) != result) {
+    if (std::end(img.data) != result) {
         size_t index = std::distance(std::begin(img.data), result);
         auto lineNo = static_cast<int>(index) / img.width;
         auto lineIndex = static_cast<int>(index) - lineNo * img.width;
